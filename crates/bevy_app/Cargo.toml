@@ -23,6 +23,8 @@ reflect_functions = [
   "bevy_ecs/reflect_functions",
 ]
 
+dynamic_linking = []
+
 # Debugging Features
 
 ## Enables `tracing` integration, allowing spans and other metrics to be reported

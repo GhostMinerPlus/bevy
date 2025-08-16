@@ -542,6 +542,7 @@ unsafe impl EntitySetIterator for ReserveEntitiesIterator<'_> {}
 ///
 /// [`World`]: crate::world::World
 #[derive(Debug)]
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 pub struct Entities {
     meta: Vec<EntityMeta>,
 
@@ -1112,6 +1113,7 @@ impl fmt::Display for EntityDoesNotExistDetails {
 }
 
 #[derive(Copy, Clone, Debug)]
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 struct EntityMeta {
     /// The current generation of the [`Entity`].
     pub generation: NonZero<u32>,
@@ -1132,6 +1134,7 @@ impl EntityMeta {
 
 /// A location of an entity in an archetype.
 #[derive(Copy, Clone, Debug, PartialEq)]
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 pub struct EntityLocation {
     /// The ID of the [`Archetype`] the [`Entity`] belongs to.
     ///

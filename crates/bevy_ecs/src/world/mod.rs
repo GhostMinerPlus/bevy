@@ -91,6 +91,7 @@ use unsafe_world_cell::{UnsafeEntityCell, UnsafeWorldCell};
 /// which are unique instances of a given type that don't belong to a specific Entity.
 /// There are also *non send resources*, which can only be accessed on the main thread.
 /// See [`Resource`] for usage.
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 pub struct World {
     id: WorldId,
     pub(crate) entities: Entities,

@@ -43,6 +43,8 @@ configurable_error_handler = []
 ## Enables automatic backtrace capturing in BevyError
 backtrace = ["std"]
 
+dynamic_linking = []
+
 # Debugging Features
 
 ## Enables `tracing` integration, allowing spans and other metrics to be reported

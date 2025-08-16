@@ -58,6 +58,7 @@ type ExtractFn = Box<dyn Fn(&mut World, &mut World) + Send>;
 /// // Update the application once (using the default runner).
 /// app.run();
 /// ```
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 pub struct SubApp {
     /// The data of this application.
     world: World,
@@ -472,6 +473,7 @@ impl SubApp {
 }
 
 /// The collection of sub-apps that belong to an [`App`].
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 #[derive(Default)]
 pub struct SubApps {
     /// The primary sub-app that contains the "main" world.

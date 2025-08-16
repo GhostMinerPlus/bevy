@@ -182,7 +182,11 @@ bevy_ui = ["dep:bevy_ui", "bevy_image"]
 bevy_image = ["dep:bevy_image"]
 
 # Used to disable code that is unsupported when Bevy is dynamically linked
-dynamic_linking = ["bevy_diagnostic/dynamic_linking"]
+dynamic_linking = [
+  "bevy_diagnostic/dynamic_linking",
+  "bevy_app/dynamic_linking",
+  "bevy_ecs/dynamic_linking",
+]
 
 # Enable using a shared stdlib for cxx on Android.
 android_shared_stdcxx = ["bevy_audio/android_shared_stdcxx"]

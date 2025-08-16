@@ -75,6 +75,7 @@ pub(crate) enum AppError {
 ///    println!("hello world");
 /// }
 /// ```
+#[cfg_attr(feature = "dynamic_linking", repr(C))]
 pub struct App {
     pub(crate) sub_apps: SubApps,
     /// The function that will manage the app's lifecycle.

@@ -756,11 +756,8 @@ unsafe fn CompareSubGroups(mut pg1: *const SSubGroup, mut pg2: *const SSubGroup)
         return false;
     }
     while i < (*pg1).iNrFaces as usize && bStillSame {
-        bStillSame = if (*pg1).pTriMembers[i] == (*pg2).pTriMembers[i] {
-            true
-        } else {
-            false
-        };
+        bStillSame = (&(*pg1).pTriMembers)[i] == (&(*pg2).pTriMembers)[i];
+
         if bStillSame {
             i += 1
         }
