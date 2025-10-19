@@ -16,7 +16,7 @@ use core::fmt::Debug;
 #[cfg(feature = "trace")]
 use tracing::{info_span, warn};
 
-type ExtractFn = Box<dyn FnMut(&mut World, &mut World) + Send>;
+type ExtractFn = Box<dyn FnMut(&mut World, &mut World) + Send + Sync>;
 
 /// A secondary application with its own [`World`]. These can run independently of each other.
 ///
@@ -164,7 +164,7 @@ impl SubApp {
     /// The first argument is the `World` to extract data from, the second argument is the app `World`.
     pub fn set_extract<F>(&mut self, extract: F) -> &mut Self
     where
-        F: FnMut(&mut World, &mut World) + Send + 'static,
+        F: FnMut(&mut World, &mut World) + Send + Sync + 'static,
     {
         self.extract = Some(Box::new(extract));
         self
